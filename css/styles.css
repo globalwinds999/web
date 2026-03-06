@@ -43,19 +43,29 @@ body {
 /*      ******  HEADER  ******    */
 
 .header{
-    
     position: fixed;
-    width: 100%;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92%;
+
     z-index: 10;
-    background: transparent;
-    transition: background 0.5s ease, opacity 0.5s ease;
-    opacity: 1;
+
     display: flex;
     align-items: center;
-}   
 
-header.scrolled {
-    background: black; }
+    background: transparent;
+    border-radius: 18px;
+
+    transition: background 0.4s ease, opacity 0.4s ease;
+
+    opacity: 1;
+}
+
+.header.scrolled,
+.header:hover {
+    background: black;
+}
 
 
 header.hidden {
@@ -131,7 +141,200 @@ header.hidden {
     display: flex;
     gap: 70px;
 }
+/* ==== SERVICES DROPDOWN ==== */
 
+.services-item {
+    position: relative;
+}
+
+/* Контейнер выпадающего меню */
+.mega-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+
+    display: flex;
+    gap: 30px;
+
+    padding: 30px;
+    background: #111;
+    border-radius: 12px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: 0.4s ease;
+
+    z-index: 100;
+}
+
+/* Показ при наведении */
+.services-item:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Карточки */
+.mega-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: white;
+    width: 220px;
+}
+
+.mega-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+
+    transition: transform 0.4s ease;
+}
+
+.mega-card span {
+    margin-top: 12px;
+    font-size: 18px;
+}
+
+/* Hover эффект */
+.mega-card:hover img {
+    transform: scale(1.05);
+}
+
+/* ===== SERVICES PAGE ===== */
+/* ===== SERVICES DARK BACKGROUND ===== */
+
+.services-page {
+    background-color: #000000;
+    color: #ffffff;
+}
+/* ===== SERVICE DETAIL SECTIONS ===== */
+
+.service-detail {
+    padding: 120px 0;
+}
+
+.service-detail-wrap {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.service-detail.reverse .service-detail-wrap {
+    flex-direction: row-reverse;
+}
+
+.service-text {
+    width: 50%;
+}
+
+.service-text h2 {
+    font-family: 'Inter Tight';
+    font-size: 48px;
+    margin-bottom: 30px;
+}
+
+.service-description {
+    font-size: 20px;
+    line-height: 150%;
+    color: #444;
+}
+
+.service-image {
+    width: 50%;
+}
+
+.service-image img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+/* ===== SERVICES PAGE BLACK BACKGROUND ===== */
+
+body.services-page {
+    background-color: #000000;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* ===== SERVICES PAGE BLACK BACKGROUND ===== */
+
+body.services-page {
+    background-color: #000000;
+    color: #ffffff;
+    margin: 0;
+}
+
+
+/* ===== SERVICES HERO ===== */
+
+.services-hero {
+    position: relative;
+    height: 90vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;   /* центр по горизонтали */
+    align-items: center;       /* центр по вертикали */
+    text-align: center;        /* текст по центру */
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+/* Лёгкое затемнение 5–10% */
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.08);
+    z-index: 1;
+}
+
+/* Контент */
+
+.services-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin-top: 250px; /* регулируй значение */
+}
+
+/* Заголовок */
+
+.services-hero-title {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 72px;
+    font-weight: 600;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+}
+
+/* Описание */
+
+.services-hero-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    line-height: 160%;
+    color: #e0e0e0;
+}
+
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 1) 0%,      /* полностью чёрный низ */
+        rgba(0, 0, 0, 0.85) 20%,
+        rgba(0, 0, 0, 0.5) 40%,
+        rgba(0, 0, 0, 0.15) 70%,
+        rgba(0, 0, 0, 0) 100%     /* верх прозрачный */
+    );
+    z-index: 1;
+}
 /*  *****    HERO   ******  */
 
 .hero {
@@ -340,6 +543,7 @@ header.hidden {
     padding-bottom: 100px;
 }
 
+/* Заголовок секции */
 .title {
     font-family: 'Inter Tight';
     font-style: normal;
@@ -349,24 +553,7 @@ header.hidden {
     color: #000000;
 }
 
-.creative-block {
-    width: 825px;
-    height: 487px;
-    background-color: #F3F3F3;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 20px;
-    padding-top: 26px;
-    padding-left: 26px;
-}
-
-.creative-block.wide {
-    width: 100%; /* или конкретное значение, например 1200px */
-    max-width: 100%; /* если нужно ограничить */
-}
-
+/* Контейнер блоков */
 .creative-wrap {
     display: flex;
     flex-wrap: wrap;
@@ -374,6 +561,268 @@ header.hidden {
     justify-content: space-between;
 }
 
+/* Обычные блоки */
+.creative-block {
+    width: 825px;
+    height: 487px;
+    background-color: #F3F3F3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 20px;
+    padding: 26px;
+}
+
+/* Широкий блок с картинкой */
+.creative-block.wide {
+    width: 65%;
+    max-width: 100%;
+
+    position: relative;
+    overflow: hidden;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* текст внизу */
+
+    padding: 40px;
+}
+
+/* Фоновая картинка */
+.block-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 1;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Затемнение снизу для читаемости текста */
+.creative-block.wide::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 55%;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.3),
+        transparent
+    );
+
+    z-index: 2;
+}
+
+/* Текст поверх картинки */
+.creative-block.wide h3,
+.creative-block.wide p {
+    position: relative;
+    z-index: 3;
+}
+
+/* Zoom эффект */
+.creative-block.wide:hover .block-background {
+    transform: scale(1.08);
+}
+
+/*      ****** ELEGANT MOOD TOGGLE FOR HOUSING PROJECTS  ******      */
+
+.creative-block.wide {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Кнопка переключения настроения */
+.mood-toggle {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    z-index: 10;
+    
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 60px;
+    
+    padding: 6px;
+    cursor: pointer;
+    
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: white;
+    
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    
+    border: none;
+    outline: none;
+}
+
+.mood-toggle:hover {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.mood-toggle:active {
+    transform: translateY(0);
+}
+
+/* Трек переключателя */
+.toggle-track {
+    width: 48px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 40px;
+    position: relative;
+    transition: background 0.3s ease;
+}
+
+/* Индикатор переключения */
+.toggle-indicator {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Иконки */
+.icon-sun, .icon-moon {
+    font-size: 12px;
+    position: absolute;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.icon-sun {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+.icon-moon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0);
+}
+
+/* Текст кнопки */
+.toggle-text {
+    padding-right: 12px;
+    transition: color 0.3s ease;
+}
+
+/* НОЧНОЙ РЕЖИМ */
+.mood-toggle.night-mode {
+    background: rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.mood-toggle.night-mode .toggle-track {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.mood-toggle.night-mode .toggle-indicator {
+    transform: translateX(24px);
+    background: #2c3e50;
+}
+
+.mood-toggle.night-mode .icon-sun {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0);
+}
+
+.mood-toggle.night-mode .icon-moon {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+    color: #f1c40f;
+}
+
+/* Стили для блока в ночном режиме */
+.creative-block.wide.night-mode {
+    color: #ecf0f1;
+}
+
+.creative-block.wide.night-mode .block-background {
+    filter: brightness(0.7) saturate(1.2) contrast(1.1);
+}
+
+.creative-block.wide.night-mode::after {
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.9),
+        rgba(0, 0, 0, 0.4),
+        transparent
+    );
+}
+
+/* Анимация появления кнопки */
+@keyframes slideInFade {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mood-toggle {
+    animation: slideInFade 0.6s ease forwards;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .mood-toggle {
+        top: 20px;
+        right: 20px;
+        padding: 4px;
+    }
+    
+    .toggle-text {
+        display: none; /* На мобильных скрываем текст */
+    }
+    
+    .toggle-track {
+        width: 44px;
+        height: 22px;
+    }
+    
+    .toggle-indicator {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .mood-toggle.night-mode .toggle-indicator {
+        transform: translateX(22px);
+    }
+}
 
 /*      ****** GALLERY  ******      */
 
